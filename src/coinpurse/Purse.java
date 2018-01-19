@@ -3,15 +3,13 @@ package coinpurse;
 import java.util.ArrayList;
 import java.util.List;
  
-//TODO import List, ArrayList, and Collections
-// You will use Collections.sort() to sort the coins
 
 /**
  *  A coin purse contains coins.
  *  You can insert coins, withdraw money, check the balance,
  *  and check if the purse is full.
  *  
- *  @author your name
+ *  @author Kwankaew Uttama
  */
 public class Purse {
     /** Collection of objects in the purse. */
