@@ -100,7 +100,7 @@ public class Purse {
     	double amountNeededToWithdraw = amount;
     	MoneyUtil.sortCoins(money);
     	List<Coin> templist = new ArrayList<Coin> ();
-    	for(int i = 0 ; i < money.size() ; i++ ){
+    	for(int i = money.size()-1  ; i > -1  ; i-- ){
     		if(money.get(i).getValue() <= amountNeededToWithdraw ){
     			templist.add(money.get(i));
     			amountNeededToWithdraw -= money.get(i).getValue();
