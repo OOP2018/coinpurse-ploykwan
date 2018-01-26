@@ -10,7 +10,7 @@ import java.util.List;
  *
  */
 
-public class Coin implements Comparable<Coin> {
+public class Coin implements Valuable {
 	/** Value of the coin. */
 	private double value;
 	/** The currency of coin. */
