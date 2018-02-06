@@ -27,7 +27,7 @@ public class MoneyUtil {
 	public static List<Valuable> filterByCurency(List<Valuable> money, String currency) {
 		List<Valuable> sameCurrency = null;
 		for (Valuable c : money) {
-			if (c.getCurrency() == currency) {
+			if (currency.equalsIgnoreCase(c.getCurrency())) {
 				sameCurrency.add(c);
 			}
 		}
@@ -70,4 +70,31 @@ public class MoneyUtil {
 		}
 		return filled;
 	}
+//	public static void main(String[] arg) {
+//		Purse purse = new Purse(10);
+//		Valuable coin1 = new Coin(1,"B");
+//		Valuable coin2 = new Coin(2,"a");
+//		Valuable coin3 = new Coin(3,"A");
+//		Valuable coin4 = new Coin(4,"B");
+//		Valuable coin5 = new Coin(5,"b");
+//		Valuable coin6 = new Coin(6,"D");
+//		Valuable coin7 = new Coin(7,"b");
+//		Valuable coin8 = new Coin(8,"B");
+//		Valuable coin9 = new Coin(9,"D");
+//		Valuable coin10 = new Coin(10,"d");
+//		
+//		List<Valuable> money = new ArrayList<Valuable>();
+//		money.add(coin1);
+//		money.add(coin2);
+//		money.add(coin3);
+//		money.add(coin4);
+//		money.add(coin5);
+//		money.add(coin6);
+//		money.add(coin7);
+//		money.add(coin8);
+//		money.add(coin9);
+//		money.add(coin10);
+//		
+//		System.out.println(filterByCurrency(money,"b"));
+//	}
 }
