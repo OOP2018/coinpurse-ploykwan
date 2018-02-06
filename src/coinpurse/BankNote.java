@@ -31,6 +31,7 @@ public class BankNote implements Valuable{
 		this.value = value;
 		this.currency = currency;
 		this.serialNumber = nextSerialNumber;
+		nextSerialNumber++;
 	}
 
 	/**
@@ -43,7 +44,7 @@ public class BankNote implements Valuable{
 	}
 
 	/**
-	 * Return the currency of money.
+	 * Get the currency from this banknote.
 	 * 
 	 * @return currency of money
 	 */
@@ -52,7 +53,7 @@ public class BankNote implements Valuable{
 	}
 
 	/**
-	 * Return the serial number of the banknote.
+	 * Get the serial number from this banknote.
 	 * 
 	 * @return the serial number of the banknote.
 	 */
@@ -78,12 +79,12 @@ public class BankNote implements Valuable{
 	}
 
 	/**
-	 * Return a String describing what is in the purse.
+	 * Return a value , currency and serial number of this banknote.
 	 * 
 	 * @return a String describing what is in the purse.
 	 */
 	public String toString() {
-		return this.value + "-Currency note [" + this.serialNumber + "]";
+		return this.value + "-"+this.currency+" note [" + this.serialNumber + "]";
 	}
 
 }
