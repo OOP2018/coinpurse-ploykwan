@@ -18,11 +18,11 @@ public class MoneyUtil {
 	 * that is the same as the currency parameter. If no matches, return an empty
 	 * list.
 	 * 
-	 * @param coins
-	 *            is the list of money in purse.
+	 * @param money
+	 *            is the list of coin in purse.
 	 * @param currency
 	 *            is the currency we want. Must not be null.
-	 * @return the list of money that same currency.
+	 * @return the list of coin that same currency.
 	 */
 	public static List<Valuable> filterByCurency(List<Valuable> money, String currency) {
 		List<Valuable> sameCurrency = null;
@@ -35,10 +35,10 @@ public class MoneyUtil {
 	}
 
 	/**
-	 * The method is sort the money from most valuable.
+	 * The method is sort the coins from most valuable.
 	 * 
 	 * @param money
-	 *            is the list of money in purse.
+	 *            is the list of coins in purse.
 	 */
 	public static void sortCoins(List<Valuable> money) {
 		Collections.sort(money, new Comparator<Valuable>() {
@@ -55,10 +55,10 @@ public class MoneyUtil {
 	 * list.
 	 * 
 	 * @param money
-	 *            is the list of money in purse
+	 *            is the list of coin in purse
 	 * @param currency
-	 *            is the currency of the money
-	 * @return list of money that have same currency.
+	 *            is the currency of the coin.
+	 * @return list of coin that have same currency.
 	 */
 	public static List<Valuable> filterByCurrency(List<Valuable> money, String currency) {
 		List<Valuable> filled = new ArrayList<Valuable>();
