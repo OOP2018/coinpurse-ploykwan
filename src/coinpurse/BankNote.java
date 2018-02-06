@@ -13,7 +13,7 @@ package coinpurse;
  *
  */
 
-public class BankNote implements Valuable{
+public class BankNote implements Valuable {
 	private static long nextSerialNumber = 1000000;
 	private double value;
 	private String currency;
@@ -75,7 +75,8 @@ public class BankNote implements Valuable{
 		else if (obj.getClass() != this.getClass())
 			return false;
 		BankNote bankNote = (BankNote) obj;
-		return (bankNote.getValue() == this.getValue()) && (bankNote.getCurrency() == this.getCurrency());
+		return (bankNote.getValue() == this.getValue())
+				&& (bankNote.getCurrency().equalsIgnoreCase(this.getCurrency()));
 	}
 
 	/**
@@ -84,7 +85,7 @@ public class BankNote implements Valuable{
 	 * @return a String describing what is in the purse.
 	 */
 	public String toString() {
-		return this.value + "-"+this.currency+" note [" + this.serialNumber + "]";
+		return this.value + "-" + this.currency + " note [" + this.serialNumber + "]";
 	}
 
 }
