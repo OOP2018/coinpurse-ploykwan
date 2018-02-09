@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Money implements Valuable {
 
-	/** Value of the coin. */
+	/** Value of the money. */
 	protected double value;
-	/** The currency of coin. */
+	/** The currency of money. */
 	protected String currency;
 
 	public Money(double value, String currency) {
@@ -34,7 +34,12 @@ public class Money implements Valuable {
 	}
 
 	/**
-	 * Check if the coin is equal to value and currency or not.
+	 * Check if two money is equal to value and currency or not.
+	 * 
+	 * @param org is the money.
+	 * 
+	 * @return true if the two money are equals.
+	 * 
 	 */
 	public boolean equals(Object arg) {
 		if (arg == null) {
@@ -46,6 +51,15 @@ public class Money implements Valuable {
 		return (this.getValue() == coins.getValue()) && (this.getCurrency() == coins.getCurrency());
 	}
 
+	/**
+	 * Compare money by currency but if two money have same currency order by value.
+	 * 
+	 * @param o
+	 *            is the money.
+	 * @return @return -1 if the first money is come first, 0 if they are equal, 1
+	 *         if the second money is come first.
+	 *
+	 */
 	@Override
 	public int compareTo(Valuable o) {
 		if (this.getCurrency().compareToIgnoreCase(o.getCurrency()) == 0) {
@@ -58,39 +72,5 @@ public class Money implements Valuable {
 		} else
 			return (int) Math.signum(this.getCurrency().compareTo(o.getCurrency()));
 	}
-
-	// public static void main(String[] arg) {
-	// Purse purse = new Purse(10);
-	// Valuable coin1 = new Coin(1, "B");
-	// Valuable coin2 = new Coin(2, "a");
-	// Valuable coin3 = new Coin(3, "A");
-	// Valuable coin4 = new Coin(4, "B");
-	// Valuable coin5 = new BankNote(1, "B");
-	// Valuable coin6 = new Coin(6, "D");
-	// Valuable coin7 = new Coin(7, "b");
-	// Valuable coin8 = new BankNote(1, "B");
-	// Valuable coin9 = new Coin(9, "D");
-	// Valuable coin10 = new Coin(10, "d");
-	//
-	// List<Valuable> money = new ArrayList<Valuable>();
-	// money.add(coin1);
-	// money.add(coin2);
-	// money.add(coin3);
-	// money.add(coin4);
-	// money.add(coin5);
-	// money.add(coin6);
-	// money.add(coin7);
-	// money.add(coin8);
-	// money.add(coin9);
-	// money.add(coin10);
-	//
-	//
-	//
-	// System.out.println(coin1.equals(coin4)); // f
-	// System.out.println(coin1.equals(coin3)); // f
-	// System.out.println(coin1.equals(coin5)); // t
-	// System.out.println(coin5.equals(coin8)); // f
-	//
-	// }
 
 }

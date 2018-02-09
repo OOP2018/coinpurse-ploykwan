@@ -109,10 +109,10 @@ public class Purse {
 		}
 		double amounts = amount.getValue();
 		Comparator<Valuable> comp = new ValueComparator();
-		Collections.sort(money,comp);
+		Collections.sort(money, comp);
 		List<Valuable> templist = new ArrayList<Valuable>();
-		for(int i = money.size() - 1 ; i > -1 ; i++ ) {
-			if((money.get(i).getValue() <= amounts )&& money.get(i).getCurrency().equals(amount.getCurrency() )) {
+		for (int i = money.size() - 1; i > -1; i++) {
+			if ((money.get(i).getValue() <= amounts) && money.get(i).getCurrency().equals(amount.getCurrency())) {
 				templist.add(money.get(i));
 				amounts -= money.get(i).getValue();
 			}
