@@ -35,7 +35,7 @@ public class PurseTest {
     }
     
     /** Make a coin with the default currency. To save typing "new Coin(...)" */
-    private Coin makeCoin(double value) {
+    private Money makeCoin(double value) {
 		return new Coin(value,CURRENCY);
 	}
 
