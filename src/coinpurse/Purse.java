@@ -78,7 +78,7 @@ public class Purse {
 
 	/**
 	 * Insert a money into the purse. The money is only inserted if the purse has
-	 * space for it and the money has positive value. No worthless coins!
+	 * space for it and the money has positive value. No worthless money!
 	 * 
 	 * @param money
 	 *            is a object to insert into purse

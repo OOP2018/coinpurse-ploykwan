@@ -38,6 +38,10 @@ public class PurseTest {
     private Money makeCoin(double value) {
 		return new Coin(value,CURRENCY);
 	}
+    /** Make a money with the default currency. To save typing "new BankNote(...)" */
+    private Money makeBankNote(double value) {
+		return new BankNote(value,CURRENCY);
+	}
 
     /** Easy test that the Purse constructor is working. */
     @Test
@@ -55,14 +59,20 @@ public class PurseTest {
     @Test
     public void testInsert()
     {
-        Purse purse = new Purse(3);
+        Purse purse = new Purse(6);
         Valuable coin1 = makeCoin(5);
         Valuable coin2 = makeCoin(10);
         Valuable coin3 = makeCoin(1);
+        Valuable bankNote1 = makeBankNote(20);
+        Valuable bankNote2 = makeBankNote(50);
+        Valuable bankNote3 = makeBankNote(100);
         assertTrue( purse.insert(coin1));
         assertTrue( purse.insert(coin3));
         assertTrue( purse.insert(coin2));
-        assertEquals( 3, purse.count() );
+        assertTrue( purse.insert(bankNote1));
+        assertTrue( purse.insert(bankNote2));
+        assertTrue( purse.insert(bankNote3));
+        assertEquals( 6, purse.count() );
         // purse is full so insert should fail
         assertFalse( purse.insert(makeCoin(1)) );
     }
@@ -74,7 +84,9 @@ public class PurseTest {
     {
         Purse purse = new Purse(3);
         Valuable fakeCoin = new Coin(0, CURRENCY);
+        Valuable fakeBankNote = new BankNote(0,CURRENCY);
         assertFalse( purse.insert(fakeCoin) );
+        assertFalse( purse.insert(fakeBankNote));
     }
 
 
@@ -103,16 +115,19 @@ public class PurseTest {
 	@Test(timeout=1000)
 	public void testInsertSameCoin()
 	{
-		int capacity = 5;
+		int capacity = 7;
 		double value = 10.0;
 		Purse purse = new Purse(capacity);
 		Valuable coin = new Coin(value, "THB");
+		Valuable bankNote = new BankNote(value,"THB");
 		assertTrue( purse.insert(coin) );
 		assertTrue( purse.insert(coin) ); // should be allowed
 		assertTrue( purse.insert(coin) ); // should be allowed
 		assertTrue( purse.insert(coin) ); // should be allowed
 		assertTrue( purse.insert(coin) ); // should be allowed
-		assertEquals( purse.getBalance(), 5*value, TOL);
+		assertTrue( purse.insert(bankNote));
+		assertTrue( purse.insert(bankNote));
+		assertEquals( purse.getBalance(), 7*value, TOL);
 	}
 
 	/** Add one coin and remove it. */
@@ -197,7 +212,7 @@ public class PurseTest {
 		assertNull( purse.withdraw(1) );
 		assertNull( purse.withdraw(19) );
 		assertNull( purse.withdraw(21) );
-		purse.insert( makeCoin(20) ); // now it has 20 + 20
+		purse.insert( makeBankNote(20) ); // now it has 20 + 20
 		assertNull( purse.withdraw(30) );
 	}
 	
