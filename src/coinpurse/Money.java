@@ -36,7 +36,8 @@ public class Money implements Valuable {
 	/**
 	 * Check if two money is equal to value and currency or not.
 	 * 
-	 * @param org is the money.
+	 * @param org
+	 *            is the money.
 	 * 
 	 * @return true if the two money are equals.
 	 * 
@@ -63,14 +64,32 @@ public class Money implements Valuable {
 	@Override
 	public int compareTo(Valuable o) {
 		if (this.getCurrency().compareToIgnoreCase(o.getCurrency()) == 0) {
-			if (this.getValue() - o.getValue() > 1)
+			if (this.getValue() > o.getValue()) {
+				// this more than o.
 				return 1;
-			if (this.getValue() - o.getValue() < 1)
+			}
+			if (this.getValue() < o.getValue()) {
+				// this less than o.
 				return -1;
-			else
-				return 0;
+			}
+			return 0;
 		} else
 			return (int) Math.signum(this.getCurrency().compareTo(o.getCurrency()));
 	}
+
+	// /**
+	// * Check compareTo()
+	// *
+	// */
+	// public static void main(String[] args) {
+	// Money b1 = new BankNote(1, "USD");
+	// Valuable b2 = new BankNote(2, "USD");
+	// if (b1.compareTo(b2) == 1)
+	// System.out.println("b1 > b2 ");
+	// else
+	// System.out.println("b1 < b2 ");
+	// System.out.println(b1.compareTo(b2));
+	// System.out.println(b1.equals(b2));
+	// }
 
 }
