@@ -28,7 +28,7 @@ public class Coin extends Money {
 	 * @return a String describing what is in the purse.
 	 */
 	public String toString() {
-		return getValue() + "-" + getValue();
+		return getValue() + "-" + getCurrency();
 	}
 
 }

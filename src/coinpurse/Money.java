@@ -64,32 +64,19 @@ public class Money implements Valuable {
 	@Override
 	public int compareTo(Valuable o) {
 		if (this.getCurrency().compareToIgnoreCase(o.getCurrency()) == 0) {
-			if (this.getValue() > o.getValue()) {
-				// this more than o.
-				return 1;
-			}
-			if (this.getValue() < o.getValue()) {
-				// this less than o.
-				return -1;
-			}
-			return 0;
+			return (int) Math.signum(this.getValue() - o.getValue());
 		} else
 			return (int) Math.signum(this.getCurrency().compareTo(o.getCurrency()));
 	}
 
-	// /**
-	// * Check compareTo()
-	// *
-	// */
-	// public static void main(String[] args) {
-	// Money b1 = new BankNote(1, "USD");
-	// Valuable b2 = new BankNote(2, "USD");
-	// if (b1.compareTo(b2) == 1)
-	// System.out.println("b1 > b2 ");
-	// else
-	// System.out.println("b1 < b2 ");
-	// System.out.println(b1.compareTo(b2));
-	// System.out.println(b1.equals(b2));
-	// }
+	 /**
+	 * Check compareTo()
+	 *
+	 */
+	 public static void main(String[] args) {
+	 Money b1 = new BankNote(1, "USD");
+	 Valuable b2 = new BankNote(2, "USD");
+	 System.out.println(b1.compareTo(b2));
+	 }
 
 }
