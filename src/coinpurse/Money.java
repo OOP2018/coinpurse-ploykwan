@@ -69,14 +69,14 @@ public class Money implements Valuable {
 			return (int) Math.signum(this.getCurrency().compareTo(o.getCurrency()));
 	}
 
-	 /**
-	 * Check compareTo()
-	 *
-	 */
-	 public static void main(String[] args) {
-	 Money b1 = new BankNote(1, "USD");
-	 Valuable b2 = new BankNote(2, "USD");
-	 System.out.println(b1.compareTo(b2));
-	 }
+//	 /**
+//	 * Check compareTo()
+//	 *
+//	 */
+//	 public static void main(String[] args) {
+//	 Money b1 = new BankNote(1, "USD");
+//	 Valuable b2 = new BankNote(2, "USD");
+//	 System.out.println(b1.compareTo(b2));
+//	 }
 
 }
