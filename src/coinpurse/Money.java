@@ -64,7 +64,7 @@ public class Money implements Valuable {
 	@Override
 	public int compareTo(Valuable o) {
 		if (this.getCurrency().compareToIgnoreCase(o.getCurrency()) == 0) {
-			return (int) Math.signum(this.getValue() - o.getValue());
+			return Double.compare(this.getValue(), o.getValue())
 		} else
 			return (int) Math.signum(this.getCurrency().compareTo(o.getCurrency()));
 	}
