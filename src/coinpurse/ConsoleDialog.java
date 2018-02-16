@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class ConsoleDialog {
 	// default currency for this dialog
-	public static final String CURRENCY = "Baht";
+	public static String CURRENCY = "Baht";
 	// use a single java.util.Scanner object for reading all input
 	private static Scanner console = new Scanner(System.in);
 	// Long prompt shown the first time
@@ -83,11 +83,17 @@ public class ConsoleDialog {
 		// parse input line into numbers
 		Scanner scanline = new Scanner(inline);
 		while (scanline.hasNextDouble()) {
-			double value = scanline.nextDouble();
-				Valuable money = makeMoney(value);
-				System.out.printf("Deposit %s... ", money.toString());
-				boolean ok = purse.insert(money);
-				System.out.println((ok ? "ok" : "FAILED"));
+			double amount = scanline.nextDouble();
+			Valuable money = null;
+			try {
+				money = makeMoney(amount);
+			} catch (IllegalArgumentException ex) {
+				System.out.println("Sorry, " + amount + " is not a valid amount.");
+				continue; // if inside a loop then go back to top
+			}
+			System.out.printf("Deposit %s... ", money.toString());
+			boolean ok = purse.insert(money);
+			System.out.println((ok ? "ok" : "FAILED"));
 		}
 		if (scanline.hasNext())
 			System.out.println("Invalid input: " + scanline.next());
@@ -128,10 +134,10 @@ public class ConsoleDialog {
 
 	/** Make a Coin (or BankNote or whatever) using requested value. */
 	private Valuable makeMoney(double value) {
-		if (value >= 20) {
-			return new BankNote(value, CURRENCY);
-		}
-		return new Coin(value, CURRENCY);
+		MoneyFactory money = MoneyFactory.getInstance();
+		Valuable m = money.createMoney(value);
+		this.CURRENCY = m.getCurrency();
+		return m;
 	}
 
 }
