@@ -14,7 +14,7 @@ public class MalayMoneyFactory extends MoneyFactory {
 	public Valuable createMoney(double value) {
 		Valuable money = null;
 		if (value == 0.05 || value == 0.1 || value == 0.2 || value == 0.5) {
-			money = new Coin(value,"Ringgit");
+			money = new Coin(value,"Ringgit","Sen");
 		} else if (value == 1 || value == 2 || value == 5 || value == 10 || value == 20 || value == 50
 				|| value == 100) {
 			money = new BankNote(value, "Ringgit",this.serialNumber++);
