@@ -13,13 +13,15 @@ public class ThaiMoneyFactory extends MoneyFactory {
 	 */
 	@Override
 	public Valuable createMoney(double value) {
+		Valuable money;
 		if (value == 1 || value == 2 || value == 5 || value == 10) {
-			return new Coin(value, "Bath");
+			money = new Coin(value, "Bath");
 		} else if (value == 20 || value == 50 || value == 100 || value == 500 || value == 1000) {
-			return new BankNote(value, "Bath",this.serialNumber++);
+			money = new BankNote(value, "Bath",this.serialNumber++);
 		} else {
 			throw new IllegalArgumentException();
 		}
+		return money;
 	}
 
 }
