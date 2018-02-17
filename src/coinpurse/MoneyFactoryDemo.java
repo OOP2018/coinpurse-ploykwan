@@ -1,5 +1,10 @@
 package coinpurse;
 
+/**
+ * Class show that MoneyFactory is singleton and all methods work.
+ * @author kwankaew
+ *
+ */
 public class MoneyFactoryDemo {
 	
 	public static void main(String[] arg) {
