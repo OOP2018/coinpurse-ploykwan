@@ -12,14 +12,16 @@ public class MalayMoneyFactory extends MoneyFactory {
 	 */
 	@Override
 	public Valuable createMoney(double value) {
+		Valuable money = null;
 		if (value == 0.05 || value == 0.1 || value == 0.2 || value == 0.5) {
-			return new Coin(value,"Ringgit");
+			money = new Coin(value,"Ringgit");
 		} else if (value == 1 || value == 2 || value == 5 || value == 10 || value == 20 || value == 50
 				|| value == 100) {
-			return new BankNote(value, "Ringgit",this.serialNumber++);
+			money = new BankNote(value, "Ringgit",this.serialNumber++);
 		} else {
 			throw new IllegalArgumentException();
 		}
+		return money;
 	}
 
 }
