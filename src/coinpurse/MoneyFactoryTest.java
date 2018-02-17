@@ -66,7 +66,6 @@ public class MoneyFactoryTest {
 		} catch (IllegalArgumentException ex) {
 			assertTrue(m3 == null);
 		}
-
 	}
 
 }
