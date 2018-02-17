@@ -1,12 +1,6 @@
 package coinpurse;
 
 /**
- * a coin with a monetary value and currency
- * 
- * @author Kwankaew Uttama
- *
- */
-/**
  * a money with a monetary value and currency
  * 
  * @author Kwankaew Uttama
