@@ -21,20 +21,15 @@ public class Main {
 		System.out.println("Factory class name is " + factoryclass);
 
 		MoneyFactory instance = null;
-		//instance.setMoneyFactory();
 		try {
 				instance = (MoneyFactory) Class.forName(factoryclass).newInstance();
-//				MoneyFactory a = (MoneyFactory) Class.forName(factoryclass);
-//				MoneyFactory.setMoneyFactory(Class.forName(factoryclass));
 
 		} catch (ClassCastException cce) {
-			// the object could not be cast to type MoneyFactory
 			System.out.println(factoryclass + " is not type MoneyFactory");
 		} catch (Exception ex) {
-			// any other exception means we could not create an object
 			System.out.println("Error creating MoneyFactory " + ex.getMessage());
 		}
-		// if no factory then quit
+
 		if (instance == null)
 			System.exit(1);
 		MoneyFactory.setMoneyFactory(instance);
