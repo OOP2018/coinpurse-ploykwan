@@ -44,7 +44,7 @@ public class MoneyUtil {
 		List<Valuable> filled = new ArrayList<Valuable>();
 
 		for (Valuable f : money) {
-			if (f.getCurrency() == currency) {
+			if (f.getCurrency().equalsIgnoreCase(currency)) {
 				filled.add(f);
 			}
 		}
