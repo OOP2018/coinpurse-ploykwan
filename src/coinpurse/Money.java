@@ -66,7 +66,7 @@ public class Money implements Valuable {
 		if (this.getCurrency().compareToIgnoreCase(o.getCurrency()) == 0) {
 			return Double.compare(this.getValue(), o.getValue());
 		} else
-			return (int) Math.signum(this.getCurrency().compareTo(o.getCurrency()));
+			return this.getCurrency().compareToIgnoreCase(o.getCurrency());
 	}
 
 //	 /**
@@ -74,8 +74,8 @@ public class Money implements Valuable {
 //	 *
 //	 */
 //	 public static void main(String[] args) {
-//	 Money b1 = new BankNote(1, "USD");
-//	 Valuable b2 = new BankNote(2, "USD");
+//	 Money b1 = new BankNote(1, "Bath");
+//	 Valuable b2 = new BankNote(2, "Bath");
 //	 System.out.println(b1.compareTo(b2));
 //	 }
 
