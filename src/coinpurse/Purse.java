@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Observable;
 
 import coinpurse.strategy.GreedyWithdraw;
+import coinpurse.strategy.RecursiveWithdraw;
 import coinpurse.strategy.WithdrawStrategy;
 
 /**
@@ -34,7 +35,8 @@ public class Purse {
 	 */
 	public Purse(int capacity) {
 		this.capacity = capacity;
-		this.strategy = new GreedyWithdraw();
+		//this.strategy = new GreedyWithdraw();
+		this.strategy = new RecursiveWithdraw();
 	}
 
 	/**
@@ -110,6 +112,7 @@ public class Purse {
 	 *         withdraw requested amount.
 	 */
 	public Valuable[] withdraw(Valuable amount) {
+
 		if (amount.getValue() < 0 || amount.getValue() > this.getBalance()) {
 			return null;
 		}
