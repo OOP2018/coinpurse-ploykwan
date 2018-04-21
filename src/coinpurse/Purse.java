@@ -35,7 +35,7 @@ public class Purse {
 	 */
 	public Purse(int capacity) {
 		this.capacity = capacity;
-		//this.strategy = new GreedyWithdraw();
+		// this.strategy = new GreedyWithdraw();
 		this.strategy = new RecursiveWithdraw();
 	}
 
@@ -116,17 +116,17 @@ public class Purse {
 		if (amount.getValue() < 0 || amount.getValue() > this.getBalance()) {
 			return null;
 		}
-		
+
 		List<Valuable> templist = this.strategy.withdraw(amount, this.money);
 
-		if(templist == null ) return null;
+		if (templist == null)
+			return null;
 		for (Valuable c : templist) {
 			money.remove(c);
 		}
 		Valuable[] array = new Valuable[templist.size()];
 		templist.toArray(array);
 		return array;
-
 	}
 
 	/**
@@ -139,10 +139,10 @@ public class Purse {
 	 *         withdraw requested amount.
 	 */
 	public Valuable[] withdraw(double amount) {
-		if (amount< 0 || amount > this.getBalance()) {
+		if (amount < 0 || amount > this.getBalance()) {
 			return null;
 		}
-		Money amounts = new Money(amount,money.get(0).getCurrency());
+		Money amounts = new Money(amount, money.get(0).getCurrency());
 		return withdraw(amounts);
 	}
 

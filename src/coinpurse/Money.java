@@ -3,6 +3,11 @@ package coinpurse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * a money with a monetary value and currency
+ * @author kwankaew
+ *
+ */
 public class Money implements Valuable {
 
 	/** Value of the money. */
@@ -68,15 +73,5 @@ public class Money implements Valuable {
 		} else
 			return this.getCurrency().compareToIgnoreCase(o.getCurrency());
 	}
-
-//	 /**
-//	 * Check compareTo()
-//	 *
-//	 */
-//	 public static void main(String[] args) {
-//	 Money b1 = new BankNote(1, "Bath");
-//	 Valuable b2 = new BankNote(2, "Bath");
-//	 System.out.println(b1.compareTo(b2));
-//	 }
 
 }
