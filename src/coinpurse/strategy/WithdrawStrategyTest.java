@@ -14,7 +14,9 @@ import coinpurse.BankNote;
 import coinpurse.Coin;
 import coinpurse.Money;
 import coinpurse.Valuable;
-
+/*
+ * JUnit test for strategy withdraw
+ */
 public class WithdrawStrategyTest {
 
 	private WithdrawStrategy strategy;
@@ -26,6 +28,7 @@ public class WithdrawStrategyTest {
 	@Before
 	public void setup() {
 		strategy = new GreedyWithdraw();
+		//strategy = new RecursiveWithdraw();
 	}
 
 	private Money makeThaiCoin(double value) {

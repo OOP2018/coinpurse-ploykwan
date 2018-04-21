@@ -5,18 +5,30 @@ import java.util.List;
 
 import coinpurse.MoneyUtil;
 import coinpurse.Valuable;
-
+/**
+ * Withdraw money by use recursive strategy
+ * @author kwankaew
+ *
+ */
 public class RecursiveWithdraw implements WithdrawStrategy {
-
+	/**
+	 * withdraw money by recursion
+	 * @param amount is money that user want to withdraw
+	 * @param money is amount of money that user has.
+	 * @return list of money that could withdraw
+	 */
 	@Override
 	public List<Valuable> withdraw(Valuable amount, List<Valuable> money) {
-		// enter(amount,money);
-		MoneyUtil.filterByCurrency(money, amount.getCurrency());
+		money = MoneyUtil.filterByCurrency(money, amount.getCurrency());
 		return helper(amount.getValue(), money);
-		// leave(money);
-
 	}
 
+	/**
+	 * helper method for withdraw method
+	 * @param amount is money that user want to withdraw
+	 * @param money is amount of money that user has.
+	 * @return list of money
+	 */
 	public List<Valuable> helper(double amount, List<Valuable> money) {
 		if (amount < 0)
 			return null;
@@ -31,20 +43,5 @@ public class RecursiveWithdraw implements WithdrawStrategy {
 			return temp;
 		} else
 			return helper(amount, money.subList(1, money.size()));
-	}
-
-	public void enter(Valuable amount, List<Valuable> money) {
-		int all = 0;
-		for (int i = 0; i < money.size(); i++) {
-			all += money.get(i).getValue();
-		}
-		System.out.println("Withdraw: " + amount + " In list: " + all);
-	}
-
-	public void leave(List<Valuable> money) {
-		int all = 0;
-		for (int i = 0; i < money.size(); i++) {
-			all += money.get(i).getValue();
-		}
 	}
 }
